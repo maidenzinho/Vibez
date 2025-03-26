@@ -1,0 +1,63 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="CSS/register.css">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+        </svg>
+    </button>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <svg class="logo" viewBox="0 0 24 24" width="48" height="48">
+                    <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <h1>Criar Conta</h1>
+                <p>Preencha seus dados para começar</p>
+            </div>
+            
+            <form id="registerForm" class="form">
+                <div class="form-group">
+                    <input type="text" id="name" required>
+                    <label for="name">Nome Completo</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="username" required>
+                    <label for="username">Nome de Usuário</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" required>
+                    <label for="email">E-mail</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Senha</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" required>
+                    <label for="confirmPassword">Confirmar Senha</label>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Criar Conta
+                    <span class="btn-overlay"></span>
+                </button>
+            </form>
+            
+            <div class="form-footer">
+                <p>Já tem uma conta? <a href="#">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/register.js"></script>
+</body>
+</html>
