@@ -3,7 +3,6 @@
 ### A rede social é completa.
 
 ### Home: [Home](https://maidenzinho.github.io/Vibez/)
-)
 ![image](https://github.com/user-attachments/assets/0e99aabf-6120-42fa-a84e-61f79b502efa)
 
 
