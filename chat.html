@@ -1,0 +1,56 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibez Chat</title>
+    <link rel="stylesheet" href="CSS/chat.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "@giphy/js-fetch-api": "https://esm.sh/@giphy/js-fetch-api",
+            "emoji-picker-element": "https://esm.sh/emoji-picker-element"
+        }
+    }
+    </script>
+    <script src="js/configchat.js" type="module"></script>
+    <script src="/js/chat.js" type="module"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="sidebar">
+            <div class="user-profile">
+                <img src="" alt="" id="userProfileImage" class="profile-pic">
+                <span id="userProfileName"></span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar amigos...">
+                <div id="searchResults" class="search-results"></div>
+            </div>
+            <div class="contacts-list" id="contactsList"></div>
+        </div>
+        
+        <div class="chat-main">
+            <div class="chat-header" id="chatHeader">
+                <div class="chat-user-info">
+                    <img src="" alt="" id="activeChatUserImage" class="profile-pic">
+                    <span id="activeChatUsername"></span>
+                </div>
+            </div>
+            
+            <div class="messages-container" id="messagesContainer"></div>
+            
+            <div class="chat-input-container">
+                <button id="emojiButton" class="tool-button">😊</button>
+                <button id="gifButton" class="tool-button">GIF</button>
+                <div class="input-wrapper">
+                    <input type="text" id="messageInput" placeholder="Digite sua mensagem...">
+                    <button id="sendButton">Enviar</button>
+                </div>
+            </div>
+            
+            <div id="emojiPicker" class="emoji-picker-container"></div>
+            <div id="gifPicker" class="gif-picker-container"></div>
+        </div>
+    </div>
+</body>
+</html>

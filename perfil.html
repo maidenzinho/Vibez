@@ -1,0 +1,127 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Social</title>
+    <link rel="stylesheet" href="CSS/perfil.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "config": "./js/perfilfake.js"
+            }
+        }
+    </script>
+    <script type="module" src="js/perfil.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-top">
+            <div class="sidebar-item active">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                </svg>
+                <span>Feed</span>
+            </div>
+            <div class="sidebar-item">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/>
+                    <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"/>
+                </svg>
+                <span>Chat</span>
+            </div>
+            <div class="sidebar-item">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                </svg>
+                <span>Notificações</span>
+            </div>
+        </div>
+        <div class="sidebar-bottom">
+            <div class="sidebar-item">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
+                </svg>
+                <span>Configurações</span>
+            </div>
+            <div class="sidebar-item">
+                <div class="sidebar-profile">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="18" fill="#FF5757"/>
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">JS</text>
+                    </svg>
+                </div>
+                <span>Perfil</span>
+            </div>
+            <div class="theme-toggle">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="profile-container">
+            <div class="cover-photo"></div>
+            
+            <div class="profile-content">
+                <div class="profile-header">
+                    <div class="profile-pic">
+                        <svg viewBox="0 0 36 36" fill="none" role="img" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="18" cy="18" r="18" fill="#FF5757"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">
+                                JS
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="name">João Silva</h1>
+                        <p class="username">@joaosilva</p>
+                        <p class="bio">Desenvolvedor Web Apaixonado por Tecnologia 💻</p>
+                    </div>
+                    <button class="edit-profile">Editar Perfil</button>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1.2K</span>
+                        <span class="stat-label">Seguidores</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">850</span>
+                        <span class="stat-label">Seguindo</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">156</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                </div>
+
+                <div class="profile-nav">
+                    <button class="nav-item active">Posts</button>
+                    <button class="nav-item">Fotos</button>
+                    <button class="nav-item">Sobre</button>
+                </div>
+
+                <div class="posts-grid">
+                    <div class="post">
+                        <h3>Meu último projeto</h3>
+                        <p>Acabei de finalizar um projeto incrível usando React e Node.js! 🚀</p>
+                        <div class="post-interactions">
+                            <span>❤️ 45</span>
+                            <span>💬 12</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <h3>Aprendendo algo novo</h3>
+                        <p>Começando meus estudos em TypeScript hoje! 📚</p>
+                        <div class="post-interactions">
+                            <span>❤️ 32</span>
+                            <span>💬 8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

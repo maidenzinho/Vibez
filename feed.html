@@ -1,24 +1,90 @@
-<!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Feed</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='CSS/feed.css'>
-    <script src='js/feed.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Feed</title>
+    <link rel="stylesheet" href="CSS/feed.css">
+    <script type="module" src="js/feed.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar">
-        <a href="#feed">&#127968; Feed</a>
-        <a href="#mensagens">&#9993; Mensagens</a>
-        <a href="#notificacoes">&#128276; Notificações</a>
-        <a href="profile.html">&#128100; Perfil</a>
-        <a href="#configuracoes">&#9881; Configurações</a>
-    </div>
-    <div class="content">
-        <h1>Bem-vindo ao Feed</h1>
-        <p>Aqui você verá as atualizações da sua rede social.</p>
-    </div>
+    <nav>
+        <div class="logo-container">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+        </div>
+        <div class="nav-actions">
+            <button class="new-post-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Nova Postagem
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="feed">
+            <div class="post-composer">
+                <img src="https://ui-avatars.com/api/?name=User" alt="Profile" class="avatar">
+                <div class="composer-input">
+                    <textarea placeholder="O que você está pensando?"></textarea>
+                    <div class="composer-actions">
+                        <button class="emoji-btn">😊</button>
+                        <button class="media-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 16l4-4 4 4 8-8" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="18" cy="6" r="2" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <button class="post-btn">Publicar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="posts" id="posts-container">
+                <!-- Posts serão inseridos aqui via JavaScript -->
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="trends">
+                <h3>Trending Topics</h3>
+                <div class="trend-item">
+                    <span class="trend-tag">#technology</span>
+                    <span class="trend-count">2.5k posts</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#design</span>
+                    <span class="trend-count">1.8k posts</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#development</span>
+                    <span class="trend-count">1.2k posts</span>
+                </div>
+            </div>
+
+            <div class="suggestions">
+                <h3>Sugestões para você</h3>
+                <div class="suggestion-item">
+                    <img src="https://ui-avatars.com/api/?name=Jane" alt="Profile" class="avatar">
+                    <div class="suggestion-info">
+                        <span class="name">Jane Cooper</span>
+                        <span class="username">@jane.cooper</span>
+                    </div>
+                    <button class="follow-btn">Seguir</button>
+                </div>
+                <div class="suggestion-item">
+                    <img src="https://ui-avatars.com/api/?name=Robert" alt="Profile" class="avatar">
+                    <div class="suggestion-info">
+                        <span class="name">Robert Fox</span>
+                        <span class="username">@robert.fox</span>
+                    </div>
+                    <button class="follow-btn">Seguir</button>
+                </div>
+            </div>
+        </aside>
+    </main>
 </body>
 </html>
