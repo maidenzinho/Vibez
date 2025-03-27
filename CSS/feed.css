@@ -20,69 +20,17 @@ body {
 }
 
 nav {
-    background-color: var(--bg-primary);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: none;
 }
 
 .logo-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-container svg {
-    width: 24px;
-    height: 24px;
-    color: white;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.new-post-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.new-post-btn:hover {
-    opacity: 0.9;
-}
-
-.user-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
+    display: none;
 }
 
 main {
     max-width: 1200px;
-    margin: 2rem auto;
+    margin-left: 240px;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 300px;
     gap: 2rem;
@@ -102,6 +50,7 @@ main {
     display: flex;
     gap: 1rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 .avatar {
@@ -123,6 +72,8 @@ textarea {
     font-size: 1rem;
     color: var(--text-primary);
     outline: none;
+    background-color: var(--bg-primary);
+    padding: 0.5rem 0;
 }
 
 .composer-actions {
@@ -166,14 +117,14 @@ textarea {
     border-radius: 0.5rem;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .post-header {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .post-info {
@@ -181,12 +132,18 @@ textarea {
 }
 
 .post-author {
-    font-weight: 500;
+    font-weight: 600;
+    margin-right: 0.5rem;
 }
 
 .post-time {
     color: var(--text-secondary);
     font-size: 0.875rem;
+}
+
+.username {
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
 .post-content {
@@ -282,12 +239,140 @@ h3 {
     color: white;
 }
 
+.sidebar-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    background-color: #1E1E1E;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+}
+
+.nav-item:hover {
+    background-color: #2D2D2D;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.nav-item span,
+.theme-toggle span {
+    font-weight: 500;
+}
+
+.nav-item svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+}
+
+.theme-toggle {
+    margin-top: auto;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.theme-toggle:hover {
+    background-color: #2D2D2D;
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-profile-info {
+    flex: 1;
+}
+
+.user-profile-info .name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.user-profile-info .username {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.bottom-nav {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 @media (max-width: 768px) {
+    .sidebar-nav {
+        width: 60px;
+        padding: 2rem 0.5rem;
+    }
+    
+    .nav-item span,
+    .theme-toggle span,
+    .user-profile-info {
+        display: none;
+    }
+    
+    main {
+        margin-left: 60px;
+    }
+    
     main {
         grid-template-columns: 1fr;
     }
 
     .sidebar {
         display: none;
+    }
+    
+    .logo-container {
+        width: 36px;  
+        height: 36px;
+    }
+    
+    .bottom-nav {
+        align-items: center;
     }
 }

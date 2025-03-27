@@ -1,3 +1,20 @@
+import { config } from './config.js';
+
+let isDarkMode = true; 
+
+function toggleTheme() {
+    isDarkMode = !isDarkMode;
+    const theme = isDarkMode ? config.darkMode : config.lightMode;
+    Object.entries(theme).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(key, value);
+    });
+    
+    const themeIcon = document.querySelector('.theme-toggle svg');
+    themeIcon.innerHTML = isDarkMode ? 
+        '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" stroke-width="2"/>' :
+        '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-3.172-7.172l1.414-1.414M4.929 19.071l1.414-1.414m0-11.314L4.929 4.929m13.557 13.557l-1.414-1.414" stroke-width="2"/>';
+}
+
 const posts = [
     {
         id: 1,
@@ -71,7 +88,14 @@ function renderPosts() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    toggleTheme(); 
+    
     renderPosts();
+
+    const sidebarSvgs = document.querySelectorAll('.sidebar-nav svg');
+    sidebarSvgs.forEach(svg => {
+        svg.setAttribute('stroke-width', '2');
+    });
 
     const postBtn = document.querySelector('.post-btn');
     const textarea = document.querySelector('textarea');
@@ -101,5 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             postBtn.click();
         }
+    });
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', toggleTheme);
+
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            navItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
     });
 });
