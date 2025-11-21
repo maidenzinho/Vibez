@@ -3,9 +3,9 @@
 
 *Login de Admin:*
 
-User: admin
-Email: admin@admin.com
-Senha: admin1234
+- User: admin
+- Email: admin@admin.com
+- Senha: admin1234
 
 Este repositório contém o código de uma rede social chamada **Vibez**, desenvolvida em **PHP + MySQL/MariaDB**, com:
 
