@@ -1,0 +1,105 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--sidebar-bg);
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+  }
+
+  .container {
+    max-width: 80%;
+    margin: auto;
+    padding: 15px;
+    margin-left: 15%;
+  }
+
+  .search-bar {
+    display: flex;
+    margin-bottom: 1000px;
+  }
+
+  .search-bar input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .section-title {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+
+  .user, .hashtag, .post {
+    background: var(--bg-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .user img, .post img.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+  }
+
+  .user span {
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+  .hashtag span {
+    color: var(--text-color);
+    font-weight: bold;
+  }
+
+  .post {
+    display: flex;
+    gap: 10px;
+  }
+
+  .post .content {
+    flex: 1;
+  }
+
+  .post .username {
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .post .text {
+    margin-top: 5px;
+    color: var(--text-color);
+  }
+
+  @media (max-width: 600px) {
+    .search-bar input {
+      font-size: 14px;
+    }
+  }
+  
+.search-bar input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  font-size: 16px;
+  width: 500px;
+}
+
+.search-bar input::placeholder {
+  color: var(--text-color);
+}

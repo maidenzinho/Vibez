@@ -1,0 +1,107 @@
+/* Estilos base */
+.notifications-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.notifications {
+    width: 100%;
+    max-width: 600px;
+}
+
+.notification {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.content-container {
+    margin-left: 250px; /* mesmo valor da sidebar */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 250px);
+}
+
+.notification.unread {
+    background-color: #eef6ff;
+}
+
+.notif-avatar img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.notif-content {
+    flex: 1;
+}
+
+.notif-content p {
+    margin: 0 0 5px;
+}
+
+.notif-time {
+    display: block;
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+.no-notifications {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-color);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Título separado e com estilo */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 20px 0 10px 0;
+    padding-left: 20px;
+    width: calc(100% - 250px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .content-container {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .notification {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .notif-content {
+        width: 100%;
+    }
+
+    .notif-avatar img {
+        width: 40px;
+        height: 40px;
+    }
+}
