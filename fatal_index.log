@@ -1,0 +1,24 @@
+[2025-11-23T21:30:53+08:00] Uncaught Error: Call to undefined function mb_strtolower() in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+Stack trace:
+#0 {main}
+  thrown in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+[2025-11-23T21:31:17+08:00] Uncaught Error: Call to undefined function mb_strtolower() in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+Stack trace:
+#0 {main}
+  thrown in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+[2025-11-23T21:31:19+08:00] Uncaught Error: Call to undefined function mb_strtolower() in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+Stack trace:
+#0 {main}
+  thrown in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+[2025-11-23T21:31:19+08:00] Uncaught Error: Call to undefined function mb_strtolower() in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+Stack trace:
+#0 {main}
+  thrown in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+[2025-11-23T21:37:03+08:00] Uncaught Error: Call to undefined function mb_strtolower() in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+Stack trace:
+#0 {main}
+  thrown in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+[2025-11-23T21:37:50+08:00] Uncaught Error: Call to undefined function mb_strtolower() in /www/wwwroot/vibez.allsocial.com.br/index.php:77
+Stack trace:
+#0 {main}
+  thrown in /www/wwwroot/vibez.allsocial.com.br/index.php:77

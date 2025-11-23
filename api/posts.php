@@ -1,64 +1,85 @@
 <?php
 
-session_start();
+require_once 'includes/config.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-require '../includes/config.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 header('Content-Type: application/json');
-ob_clean();
+
+// Garante que não tenha nada antes do JSON
+if (ob_get_length()) {
+    ob_clean();
+}
 
 try {
-    $lastId = isset($_GET['lastId']) ? (int)$_GET['lastId'] : PHP_INT_MAX;
+    // Só aceita POST
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        echo json_encode(['success' => false, 'error' => 'Método inválido']);
+        exit;
+    }
 
-    $query = "
-        SELECT 
-            p.id, p.content, p.image, p.created_at, p.like_count, 
-            p.shared_post_id,
-            u.username, u.profile_pic,
+    // Usuário precisa estar logado
+    if (empty($_SESSION['user_id'])) {
+        echo json_encode(['success' => false, 'error' => 'Usuário não autenticado']);
+        exit;
+    }
 
-            sp.id AS original_id, sp.content AS original_content, sp.image AS original_image, sp.created_at AS original_created_at,
-            ou.username AS original_username, ou.profile_pic AS original_profile_pic
+    $content   = trim($_POST['content'] ?? '');
+    $imagePath = null;
 
-        FROM posts p
-        JOIN users u ON p.user_id = u.id
-        LEFT JOIN posts sp ON p.shared_post_id = sp.id
-        LEFT JOIN users ou ON sp.user_id = ou.id
-        WHERE p.id < :lastId
-        ORDER BY p.id DESC
-        LIMIT 10
-    ";
+    // Verifica se veio imagem
+    $temImagem = !empty($_FILES['image']) && !empty($_FILES['image']['name']);
 
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':lastId', $lastId, PDO::PARAM_INT);
-    $stmt->execute();
+    if ($content === '' && !$temImagem) {
+        echo json_encode(['success' => false, 'error' => 'O post não pode estar vazio']);
+        exit;
+    }
 
-    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Upload da imagem (se existir)
+    if ($temImagem) {
+        $uploadDirFs  = __DIR__ . '/uploads/'; // caminho físico
+        $uploadDirRel = 'uploads/';            // caminho que vai pro banco
 
-    foreach ($posts as &$post) {
-        $post['image'] = !empty($post['image']) ? '/' . ltrim($post['image'], '/') : null;
-
-        // Verifica se o usuário logado curtiu esse post
-        $post['user_liked'] = false;
-
-        if (isset($_SESSION['user_id'])) {
-            $checkLike = $pdo->prepare("SELECT 1 FROM likes WHERE post_id = ? AND user_id = ?");
-            $checkLike->execute([$post['id'], $_SESSION['user_id']]);
-            $post['user_liked'] = $checkLike->fetchColumn() ? true : false;
+        if (!is_dir($uploadDirFs)) {
+            mkdir($uploadDirFs, 0775, true);
         }
 
-        // Se for compartilhamento, trata imagem e conteúdo original
-        if ($post['shared_post_id']) {
-            $post['original_image'] = !empty($post['original_image']) ? '/' . ltrim($post['original_image'], '/') : null;
+        $imageName = time() . '_' . basename($_FILES['image']['name']);
+        $destFs    = $uploadDirFs . $imageName;
+        $imagePath = $uploadDirRel . $imageName;
+
+        if (!move_uploaded_file($_FILES['image']['tmp_name'], $destFs)) {
+            echo json_encode(['success' => false, 'error' => 'Erro ao salvar a imagem']);
+            exit;
         }
     }
 
-    echo json_encode($posts);
-    exit;
-} catch (Exception $e) {
-    echo json_encode(['success' => false, 'error' => $e->getMessage()]);
-    exit;
+    // Usa o singleton de conexão (mesmo do index/login)
+    $db   = Database::getInstance();
+    $conn = $db->getConnection();
+
+    $query = "INSERT INTO posts (user_id, content, image, created_at)
+              VALUES (:user_id, :content, :image, NOW())";
+
+    $stmt = $conn->prepare($query);
+    $stmt->execute([
+        ':user_id' => $_SESSION['user_id'],
+        ':content' => $content,
+        ':image'   => $imagePath
+    ]);
+
+    $lastId = $conn->lastInsertId();
+
+    echo json_encode([
+        'success' => true,
+        'id'      => $lastId,
+        'image'   => $imagePath
+    ]);
+} catch (Throwable $e) {
+    error_log('Erro em post.php: ' . $e->getMessage());
+    echo json_encode(['success' => false, 'error' => 'Erro interno ao criar post.']);
 }
+
+exit;

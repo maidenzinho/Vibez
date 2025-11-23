@@ -46,7 +46,7 @@ if (empty($token)) {
     <style>
         body {
             background-color: #111;
-            color: #fff;
+            color: black;
             font-family: sans-serif;
             text-align: center;
             padding: 80px 20px;
@@ -62,7 +62,7 @@ if (empty($token)) {
         }
 
         a {
-            color: #00bfff;
+            color: black;
             text-decoration: none;
             font-weight: bold;
         }

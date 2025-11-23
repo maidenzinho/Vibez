@@ -109,14 +109,19 @@ body {
         display: block;
         width: 350px;
         padding: 20px;
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        overflow-y: auto;
-        border-left: none;
+
+        /* deixa de ser “flutuante” por cima de tudo */
+        position: sticky;       /* pode usar 'static' se preferir */
+        top: 20px;
+        align-self: flex-start;
+
+        height: auto;
+        overflow-y: visible;
+        border-left: 1px solid var(--border-color);
+        margin-left: 20px;      /* espaço entre o feed e a coluna direita */
     }
 }
+
 
 /* Sidebar styles */
 .sidebar-header {

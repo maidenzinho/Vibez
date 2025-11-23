@@ -54,9 +54,13 @@ $profile_pic = getProfilePic($user_id, $profile['profile_pic']);
             <span><?php echo $username; ?></span>
         </a>
     </div>
-
+    
     <a href="<?php echo SITE_URL; ?>/settings.php" class="sidebar-link">
         <i class="fas fa-cog sidebar-icon"></i>
         <span>Configurações</span>
     </a>
+    <a href="<?php echo SITE_URL; ?>/logout.php" class="sidebar-link">
+            <i class="fas fa-sign-out sidebar-icon"></i>
+            <span>Sair</span>
+        </a>
 </div>
